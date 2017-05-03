@@ -7,7 +7,9 @@ defmodule Raven.CLI do
   """
 
   def run(argv) do
-    parse_args(argv)
+    argv
+    |> parse_args
+    |> process
   end
 
   @doc """
@@ -28,5 +30,16 @@ defmodule Raven.CLI do
       _
         -> :help
     end
+  end
+
+  def process(:help) do
+    IO.puts """
+    usage: raven <user> <project> [ count | #{@default_count} ]
+    """
+    System.halt(0)
+  end
+
+  def process({user, project, _count}) do
+    Raven.GitHubIssues.fetch(user, project)
   end
 end

@@ -1,4 +1,4 @@
-defmodule CliTest do
+defmodule CLITest do
   use ExUnit.Case
   doctest Raven
 
