@@ -1,5 +1,6 @@
 defmodule Raven.GitHubIssues do
   @user_agent [ {"User-agent", "Raven"} ]
+  @github_url Application.get_env(:raven, :github_url)
 
   def fetch(user, project) do
     issues_url(user, project)
@@ -8,7 +9,7 @@ defmodule Raven.GitHubIssues do
   end
 
   def issues_url(user, project) do
-    "https://api.github.com/repos/#{user}/#{project}/issues"
+    "#{@github_url}/repos/#{user}/#{project}/issues"
   end
 
   def handle_response({:ok, %{status_code: 200, body: body}}) do
