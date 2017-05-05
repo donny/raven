@@ -5,6 +5,8 @@ defmodule Raven.Mixfile do
     [app: :raven,
      escript: escript_config(),
      version: "0.1.0",
+     name: "Raven",
+     source_url: "https://github.com/donny/raven",
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -31,7 +33,9 @@ defmodule Raven.Mixfile do
   defp deps do
     [
       {:httpoison, "~> 0.11.2"},
-      {:poison, "~> 3.1"}
+      {:poison, "~> 3.1"},
+      {:ex_doc, "~> 0.15.1"},
+      {:earmark, "~> 1.2"}
     ]
   end
 
