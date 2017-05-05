@@ -38,7 +38,9 @@ Raven is implemented by three main files:
 
 - [`cli.ex`](https://github.com/donny/raven/blob/master/lib/raven/cli.ex) that does CLI parsing and processing.
 - [`table_formatter.ex`](https://github.com/donny/raven/blob/master/lib/raven/table_formatter.ex) that prints a table for the results.
-- [`github_issues.ex`](https://github.com/donny/raven/blob/master/lib/raven/github_issues.ex) that fetches the data from GitHub and handles the response. The whole file can be seen below:
+- [`github_issues.ex`](https://github.com/donny/raven/blob/master/lib/raven/github_issues.ex) that fetches the data from GitHub and handles the response.
+
+The whole file of `github_issues.ex` can be seen below. It is so simple and elegant!
 
 ```elixir
 defmodule Raven.GitHubIssues do
@@ -71,6 +73,20 @@ defmodule Raven.GitHubIssues do
   end
 end
 ```
+
+We use [httpoison](https://github.com/edgurgel/httpoison) library as the HTTP client library and [poison](https://github.com/devinus/poison) as the JSON library. And the main code of the app can be seen below:
+
+```elixir
+def process({user, project, count}) do
+  Raven.GitHubIssues.fetch(user, project)
+  |> decode_response
+  |> sort_into_ascending_order
+  |> Enum.take(count)
+  |> print_table_for_columns(["number", "created_at", "title"])
+end
+```
+
+Elixir's [pipe operator](https://elixirschool.com/lessons/basics/pipe-operator/) makes the code easy to read and understand.
 
 ### Conclusion
 
