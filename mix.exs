@@ -3,6 +3,7 @@ defmodule Raven.Mixfile do
 
   def project do
     [app: :raven,
+     escript: escript_config(),
      version: "0.1.0",
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
@@ -32,5 +33,9 @@ defmodule Raven.Mixfile do
       {:httpoison, "~> 0.11.2"},
       {:poison, "~> 3.1"}
     ]
+  end
+
+  defp escript_config do
+    [ main_module: Raven.CLI ]
   end
 end

@@ -8,7 +8,7 @@ defmodule Raven.CLI do
 
   import Raven.TableFormatter, only: [ print_table_for_columns: 2 ]
 
-  def run(argv) do
+  def main(argv) do
     argv
     |> parse_args
     |> process
