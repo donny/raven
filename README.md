@@ -28,7 +28,9 @@ I used the book [Programming Elixir 1.3](https://pragprog.com/book/elixir13/prog
 
 ### Project
 
-...
+Raven is a simple CLI implementation to display GitHub issues for a particular project. It can be executed by passing the GitHub user and project as arguments. As an example, take a look at the screenshot of the app in action:
+
+![Screenshot](https://raw.githubusercontent.com/donny/raven/master/screenshot.png)
 
 ### Implementation
 
