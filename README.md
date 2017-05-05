@@ -90,4 +90,6 @@ Elixir's [pipe operator](https://elixirschool.com/lessons/basics/pipe-operator/)
 
 ### Conclusion
 
-...
+I really like Elixir. It packages Erlang's scalability and fault tolerance into a nice language with simpler syntax and shortcuts; and comes with great tools such as Mix and IEx. But there is one thing that surprises me with Elixir. It allows you to assign to a [variable](http://elixir-lang.org/crash-course.html#variable-names) more than once. Elixir doesn't follow the same concept as Erlang in this regard. I guess Elixir tries to be more accessible for developers less familiar with pattern matching and functional programming. José Valim, Elixir's creator, gives a great [explanation](http://blog.plataformatec.com.br/2016/01/comparing-elixir-and-erlang-variables/) of the reasoning behind this behaviour.
+
+Still, I'm super happy to learn more and use Elixir. I can't wait to play with the concurrency support in Elixir.
